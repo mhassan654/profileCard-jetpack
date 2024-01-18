@@ -127,30 +127,14 @@ fun  ProfilePicture(pictureUrl: String, onlineStatus: Boolean){
                 MaterialTheme.colorScheme.primary else Color.Green),
         modifier = Modifier.padding(16.dp),
         ) {
-
-
-//        AsyncImage(
-//            model = ImageRequest.Builder(LocalContext.current)
-//                .data(pictureUrl)
-//                .crossfade(true)
-//                .build(),
-//            contentDescription = "",
-//            modifier = Modifier.size(72.dp),
-//            contentScale = ContentScale.Crop
-//        )
-        val painter = rememberAsyncImagePainter(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(pictureUrl)
-                .size(Size.ORIGINAL) // Set the target size to load the image at.
-                .build()
-        )
-
         Image(
-            painter = painter,
+            painter = rememberAsyncImagePainter(pictureUrl),
             contentDescription = "",
             modifier = Modifier.size(72.dp),
             contentScale = ContentScale.Crop
         )
+
+
     }
 
 }
